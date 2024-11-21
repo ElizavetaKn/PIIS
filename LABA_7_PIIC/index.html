@@ -16,12 +16,14 @@
     </style>
 </head>
 <body>
-
+// Контейнер для Выбора фигуры
 <div class="controls">
-    <label><input type="radio" name="shape" value="circle" checked> Круг</label>
+    <label><input type="radio" name="shape" value="circle" checked> Круг</label> 
+    //круг по умолчанию
     <label><input type="radio" name="shape" value="rectangle"> Прямоугольник</label>
 </div>
 
+    //Элемент где будут рисоваться фигуры
 <svg id="svgCanvas"></svg>
 
 <script>
@@ -44,8 +46,8 @@
         startY = e.offsetY;
 
         if (selectedShape === 'circle') {
-            currentShape = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            currentShape.setAttribute('cx', startX);
+            currentShape = document.createElementNS('http://www.w3.org/2000/svg', 'circle'); //создаю новый элемент круга 
+            currentShape.setAttribute('cx', startX); //установка координат центра круга
             currentShape.setAttribute('cy', startY);
             currentShape.setAttribute('r', 0);
         } else if (selectedShape === 'rectangle') {
@@ -56,14 +58,14 @@
             currentShape.setAttribute('height', 0);
         }
 
-        currentShape.setAttribute('stroke', 'red');
-        currentShape.setAttribute('fill', 'transparent');
-        svgCanvas.appendChild(currentShape);
+        currentShape.setAttribute('stroke', 'red'); //обводка
+        currentShape.setAttribute('fill', 'transparent'); //фон внутри фигуры
+        svgCanvas.appendChild(currentShape); //добавляю фигурка чтобы она появилась
     });
 
     // Обновление размеров фигуры при движении мыши
     svgCanvas.addEventListener('mousemove', (e) => {
-        if (!isDrawing) return;
+        if (!isDrawing) return; //если не рисую - выход из функции
 
         if (selectedShape === 'circle') {
             const radius = Math.sqrt(Math.pow(e.offsetX - startX, 2) + Math.pow(e.offsetY - startY, 2));
