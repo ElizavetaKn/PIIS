@@ -63,7 +63,7 @@ article:nth-child(9){
   }
 }
 
-@media screen and (min-width: 700px) and (max-width: 1399px){
+@media screen and (min-width: 700px) and (max-width: 1439px){
   .adaptive{
     display: grid;
     grid-template-areas:
@@ -76,23 +76,3 @@ article:nth-child(9){
   }
 
  }
-
-@media screen and (max-width: 699px){
-  .adaptive{
-    display: grid;
-    grid-template-areas:
-    "a"
-    "b"
-    "c"
-    "d"
-    "e"
-    "f"
-    "g"
-    "h"
-    "i";
-  }
-
-}
-
-
-
